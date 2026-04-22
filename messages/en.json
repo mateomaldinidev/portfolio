@@ -12,5 +12,9 @@
     "description": "I build scalable, secure and well-structured APIs.",
     "projectsButton": "Projects",
     "cvButton": "CV"
+  },
+  "about": {
+    "title": "About",
+    "description": "I am a backend developer focused on building maintainable systems, clean architecture, and reliable APIs that scale with real product needs."
   }
 }

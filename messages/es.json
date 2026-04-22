@@ -12,5 +12,9 @@
     "description": "Construyo APIs escalables, seguras y bien estructuradas.",
     "projectsButton": "Proyectos",
     "cvButton": "CV"
+  },
+  "about": {
+    "title": "Sobre mi",
+    "description": "Soy desarrollador backend, enfocado en construir sistemas mantenibles, arquitectura limpia y APIs confiables que escalan con necesidades reales de producto."
   }
 }
