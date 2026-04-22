@@ -23,6 +23,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { MOTION_PRESETS, MOTION_TRANSITIONS } from "@/lib/motion";
 import { useSectionTranslations } from "@/src/hooks/use-section-translations";
 
 const ICONS = {
@@ -72,10 +73,10 @@ export function ProjectsSection() {
     <motion.section
       id="projects"
       className="scroll-mt-24"
-      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
-      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      initial={shouldReduceMotion ? undefined : MOTION_PRESETS.fadeInUpDense.initial}
+      whileInView={shouldReduceMotion ? undefined : MOTION_PRESETS.fadeInUpDense.whileInView}
+      viewport={MOTION_PRESETS.fadeInUpDense.viewport}
+      transition={MOTION_TRANSITIONS.section}
     >
       <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-6 shadow-[0_16px_40px_-30px_rgba(139,92,246,0.45)] backdrop-blur-sm sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
@@ -90,9 +91,9 @@ export function ProjectsSection() {
               whileHover={
                 shouldReduceMotion
                   ? undefined
-                  : { y: -4, scale: 1.01 }
+                  : MOTION_PRESETS.hoverLiftCard
               }
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={MOTION_TRANSITIONS.hover}
             >
               <Card className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0 transition-shadow duration-200 hover:shadow-lg hover:shadow-zinc-950/40">
                 <CardContent className="pt-4">
@@ -127,7 +128,7 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    <motion.div whileHover={shouldReduceMotion ? undefined : { y: -2 }} transition={{ duration: 0.18, ease: "easeOut" }}>
+                    <motion.div whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftSm} transition={MOTION_TRANSITIONS.micro}>
                       <Button asChild size="sm" className="h-8">
                         <Link href={project.github} target="_blank" rel="noreferrer">
                           <Braces className="size-4" />
@@ -135,7 +136,7 @@ export function ProjectsSection() {
                         </Link>
                       </Button>
                     </motion.div>
-                    <motion.div whileHover={shouldReduceMotion ? undefined : { y: -2 }} transition={{ duration: 0.18, ease: "easeOut" }}>
+                    <motion.div whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftSm} transition={MOTION_TRANSITIONS.micro}>
                       <Button asChild size="sm" variant="outline" className="h-8 border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
                         <Link href={project.demo} target="_blank" rel="noreferrer">
                           <ExternalLink className="size-4" />

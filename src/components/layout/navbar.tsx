@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { MOTION_PRESETS, MOTION_TRANSITIONS } from "@/lib/motion";
 import { Container } from "@/src/components/layout/container";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +61,7 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-full items-center gap-3">
-        <motion.div whileHover={shouldReduceMotion ? undefined : { y: -1 }} transition={{ duration: 0.16, ease: "easeOut" }}>
+        <motion.div whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftNav} transition={MOTION_TRANSITIONS.micro}>
           <Link href="#top" className="shrink-0 text-sm font-semibold tracking-wide text-zinc-100 transition-colors hover:text-cyan-300">
             {t("logo")}
           </Link>
@@ -68,14 +69,14 @@ export function Navbar() {
 
         <nav className="flex min-w-0 flex-1 items-center justify-end gap-1 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {LINKS.map((link) => (
-            <motion.div key={link.key} whileHover={shouldReduceMotion ? undefined : { y: -1 }} transition={{ duration: 0.16, ease: "easeOut" }}>
+            <motion.div key={link.key} whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftNav} transition={MOTION_TRANSITIONS.micro}>
               <Button asChild variant="ghost" size="sm" className="text-zinc-300 transition-colors hover:text-zinc-100">
                 <Link href={link.href}>{t(link.key)}</Link>
               </Button>
             </motion.div>
           ))}
 
-          <motion.div whileHover={shouldReduceMotion ? undefined : { y: -1 }} transition={{ duration: 0.16, ease: "easeOut" }}>
+          <motion.div whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftNav} transition={MOTION_TRANSITIONS.micro}>
             <Button
               asChild
               variant="ghost"

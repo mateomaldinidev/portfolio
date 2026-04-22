@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { MOTION_PRESETS, MOTION_TRANSITIONS } from "@/lib/motion";
 import {
   Card,
   CardContent,
@@ -62,10 +63,10 @@ export function SkillsSection() {
     <motion.section
       id="skills"
       className="scroll-mt-24"
-      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
-      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      initial={shouldReduceMotion ? undefined : MOTION_PRESETS.fadeInUpDense.initial}
+      whileInView={shouldReduceMotion ? undefined : MOTION_PRESETS.fadeInUpDense.whileInView}
+      viewport={MOTION_PRESETS.fadeInUpDense.viewport}
+      transition={MOTION_TRANSITIONS.section}
     >
       <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-6 shadow-[0_16px_40px_-30px_rgba(16,185,129,0.45)] backdrop-blur-sm sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
@@ -77,11 +78,11 @@ export function SkillsSection() {
           {CATEGORIES.map((category, index) => (
             <motion.div
               key={category}
-              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 14 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-              whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.01 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.24, ease: "easeOut", delay: index * 0.04 }}
+              initial={shouldReduceMotion ? undefined : MOTION_PRESETS.fadeInUpCard.initial}
+              whileInView={shouldReduceMotion ? undefined : MOTION_PRESETS.fadeInUpCard.whileInView}
+              whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftCard}
+              viewport={MOTION_PRESETS.fadeInUpCard.viewport}
+              transition={{ ...MOTION_TRANSITIONS.card, delay: index * 0.04 }}
             >
               <Card className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0 transition-shadow duration-200 hover:shadow-lg hover:shadow-zinc-950/35">
                 <CardHeader>
