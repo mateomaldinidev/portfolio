@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useSectionTranslations } from "@/src/hooks/use-section-translations";
 
@@ -8,7 +9,12 @@ export function HeroSection() {
   const t = useSectionTranslations("hero");
 
   return (
-    <section className="mx-auto w-full max-w-3xl rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 text-center sm:p-12">
+    <motion.section
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="mx-auto w-full max-w-3xl rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 text-center sm:p-12"
+    >
       <h1 className="text-4xl font-semibold tracking-tight text-zinc-100 sm:text-6xl">
         {t("title")}
       </h1>
@@ -25,6 +31,6 @@ export function HeroSection() {
           </Link>
         </Button>
       </div>
-    </section>
+    </motion.section>
   );
 }
