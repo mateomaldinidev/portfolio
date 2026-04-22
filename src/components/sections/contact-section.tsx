@@ -27,12 +27,12 @@ export function ContactSection() {
       transition={MOTION_TRANSITIONS.section}
     >
       <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-6 text-center shadow-[0_16px_40px_-30px_rgba(59,130,246,0.5)] backdrop-blur-sm sm:p-8">
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
           {t("title")}
         </h2>
-        <p className="mx-auto mt-2 max-w-xl text-zinc-400">{t("description")}</p>
+        <p className="mx-auto mt-3 max-w-xl text-base text-zinc-400 sm:text-lg">{t("description")}</p>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <motion.div whileHover={shouldReduceMotion ? undefined : MOTION_PRESETS.hoverLiftSm} transition={MOTION_TRANSITIONS.micro}>
             <Button asChild variant="outline" className="border-zinc-700 bg-transparent text-zinc-100 transition-colors hover:bg-zinc-800">
               <Link href={CONTACT_LINKS.github} target="_blank" rel="noreferrer">

@@ -8,10 +8,18 @@
   },
   "hero": {
     "title": "Mateo Maldini",
+    "console": "Hello, world!",
+    "firstName": "Mateo",
+    "lastName": "Maldini",
     "subtitle": "Backend Developer",
     "description": "Construyo APIs escalables, seguras y bien estructuradas.",
-    "projectsButton": "Proyectos",
-    "cvButton": "CV"
+    "typed": {
+      "one": "Arquitectura de Software",
+      "two": "Desarrollo moderno con IA",
+      "three": "Clean Code y Buenas Practicas"
+    },
+    "projectsButton": "Ver Proyectos",
+    "cvButton": "Descargar CV"
   },
   "about": {
     "title": "Sobre mi",

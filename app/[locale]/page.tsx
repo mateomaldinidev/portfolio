@@ -6,7 +6,7 @@ import { ContactSection } from "@/src/components/sections/contact-section";
 
 export default function HomePage() {
   return (
-    <main id="top" className="flex min-h-screen flex-col gap-20 py-10 sm:py-14">
+    <main id="top" className="flex min-h-screen flex-col gap-24 py-6 sm:gap-28 sm:py-8">
       <HeroSection />
 
       <AboutSection />

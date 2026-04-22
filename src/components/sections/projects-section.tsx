@@ -79,12 +79,12 @@ export function ProjectsSection() {
       transition={MOTION_TRANSITIONS.section}
     >
       <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-6 shadow-[0_16px_40px_-30px_rgba(139,92,246,0.45)] backdrop-blur-sm sm:p-8">
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
           {t("title")}
         </h2>
-        <p className="mt-2 text-zinc-400">{t("description")}</p>
+        <p className="mt-3 text-base text-zinc-400 sm:text-lg">{t("description")}</p>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
           {PROJECTS.map((project) => (
             <motion.div
               key={project.key}
