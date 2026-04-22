@@ -87,5 +87,12 @@
       "playwright": "Playwright",
       "vitest": "Vitest"
     }
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Conectemos para colaboraciones, oportunidades backend o conversaciones tecnicas.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
   }
 }
