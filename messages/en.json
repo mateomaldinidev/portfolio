@@ -9,6 +9,8 @@
   "hero": {
     "title": "Mateo Maldini",
     "subtitle": "Backend Developer",
-    "description": "I build scalable, secure and well-structured APIs."
+    "description": "I build scalable, secure and well-structured APIs.",
+    "projectsButton": "Projects",
+    "cvButton": "CV"
   }
 }
