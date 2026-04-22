@@ -15,6 +15,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -106,13 +107,14 @@ export function ProjectsSection() {
                       const Icon = ICONS[techKey];
 
                       return (
-                        <div
+                        <Badge
                           key={techKey}
-                          className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-200"
+                          variant="outline"
+                          className="border-zinc-700 bg-zinc-900 text-zinc-200"
                         >
-                          <Icon className="size-3.5 text-zinc-400" />
-                          <span>{t(`tech.${techKey}`)}</span>
-                        </div>
+                          <Icon className="size-3 text-zinc-400" />
+                          {t(`tech.${techKey}`)}
+                        </Badge>
                       );
                     })}
                   </div>
