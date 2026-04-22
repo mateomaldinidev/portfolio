@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/src/components/layout/container";
+import { cn } from "@/lib/utils";
 
 const LINKS = [
   { key: "about", href: "#about" },
@@ -30,9 +32,28 @@ export function Navbar() {
   const t = useTranslations("navbar");
   const pathname = usePathname();
   const activeLocale = pathname.startsWith("/es") ? "es" : "en";
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur">
+    <header
+      className={cn(
+        "sticky top-0 z-40 bg-zinc-950/70 backdrop-blur transition-colors",
+        isScrolled ? "border-b border-zinc-800/80" : "border-b border-transparent"
+      )}
+    >
       <Container className="flex h-16 items-center justify-between gap-3">
         <Link href="#top" className="text-sm font-semibold tracking-wide text-zinc-100">
           {t("logo")}
