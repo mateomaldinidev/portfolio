@@ -69,8 +69,15 @@ export function ProjectsSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="projects" className="scroll-mt-24">
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8">
+    <motion.section
+      id="projects"
+      className="scroll-mt-24"
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+    >
+      <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-6 shadow-[0_16px_40px_-30px_rgba(139,92,246,0.45)] backdrop-blur-sm sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
           {t("title")}
         </h2>
@@ -120,18 +127,22 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    <Button asChild size="sm" className="h-8">
-                      <Link href={project.github} target="_blank" rel="noreferrer">
-                        <Braces className="size-4" />
-                        {t("buttons.github")}
-                      </Link>
-                    </Button>
-                    <Button asChild size="sm" variant="outline" className="h-8 border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
-                      <Link href={project.demo} target="_blank" rel="noreferrer">
-                        <ExternalLink className="size-4" />
-                        {t("buttons.demo")}
-                      </Link>
-                    </Button>
+                    <motion.div whileHover={shouldReduceMotion ? undefined : { y: -2 }} transition={{ duration: 0.18, ease: "easeOut" }}>
+                      <Button asChild size="sm" className="h-8">
+                        <Link href={project.github} target="_blank" rel="noreferrer">
+                          <Braces className="size-4" />
+                          {t("buttons.github")}
+                        </Link>
+                      </Button>
+                    </motion.div>
+                    <motion.div whileHover={shouldReduceMotion ? undefined : { y: -2 }} transition={{ duration: 0.18, ease: "easeOut" }}>
+                      <Button asChild size="sm" variant="outline" className="h-8 border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
+                        <Link href={project.demo} target="_blank" rel="noreferrer">
+                          <ExternalLink className="size-4" />
+                          {t("buttons.demo")}
+                        </Link>
+                      </Button>
+                    </motion.div>
                   </div>
                 </CardContent>
               </Card>
@@ -139,6 +150,6 @@ export function ProjectsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

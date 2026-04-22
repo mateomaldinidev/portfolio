@@ -1,19 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useSectionTranslations } from "@/src/hooks/use-section-translations";
 
 export function HeroSection() {
   const t = useSectionTranslations("hero");
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.section
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="mx-auto w-full max-w-3xl rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 text-center sm:p-12"
+      className="mx-auto w-full max-w-3xl rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-8 text-center shadow-[0_20px_50px_-34px_rgba(56,189,248,0.55)] backdrop-blur-sm sm:p-12"
     >
       <h1 className="text-4xl font-semibold tracking-tight text-zinc-100 sm:text-6xl">
         {t("title")}
@@ -22,14 +23,18 @@ export function HeroSection() {
       <p className="mx-auto mt-4 max-w-2xl text-zinc-400">{t("description")}</p>
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <Button asChild>
-          <Link href="#projects">{t("projectsButton")}</Link>
-        </Button>
-        <Button asChild variant="outline" className="border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
-          <Link href="/cv.pdf" target="_blank" rel="noreferrer">
-            {t("cvButton")}
-          </Link>
-        </Button>
+        <motion.div whileHover={shouldReduceMotion ? undefined : { y: -2 }} transition={{ duration: 0.18, ease: "easeOut" }}>
+          <Button asChild>
+            <Link href="#projects">{t("projectsButton")}</Link>
+          </Button>
+        </motion.div>
+        <motion.div whileHover={shouldReduceMotion ? undefined : { y: -2 }} transition={{ duration: 0.18, ease: "easeOut" }}>
+          <Button asChild variant="outline" className="border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
+            <Link href="/cv.pdf" target="_blank" rel="noreferrer">
+              {t("cvButton")}
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </motion.section>
   );

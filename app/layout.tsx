@@ -28,8 +28,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen bg-zinc-950 text-zinc-100">
-        <Container className="flex min-h-screen flex-col">
+      <body className="relative min-h-screen overflow-x-hidden bg-zinc-950 text-zinc-100">
+        <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+          <div className="absolute inset-0 bg-[linear-gradient(160deg,#020617_0%,#09090b_45%,#111827_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.12),transparent_45%),radial-gradient(circle_at_80%_10%,rgba(139,92,246,0.12),transparent_40%),radial-gradient(circle_at_50%_85%,rgba(16,185,129,0.1),transparent_45%)]" />
+        </div>
+
+        <Container className="relative z-10 flex min-h-screen flex-col">
           {children}
         </Container>
       </body>

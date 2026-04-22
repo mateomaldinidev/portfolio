@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -55,47 +56,61 @@ const ICONS = {
 
 export function SkillsSection() {
   const t = useSectionTranslations("skills");
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="skills" className="scroll-mt-24">
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8">
+    <motion.section
+      id="skills"
+      className="scroll-mt-24"
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+    >
+      <div className="rounded-2xl border border-zinc-800/90 bg-zinc-900/45 p-6 shadow-[0_16px_40px_-30px_rgba(16,185,129,0.45)] backdrop-blur-sm sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">
           {t("title")}
         </h2>
         <p className="mt-2 text-zinc-400">{t("description")}</p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {CATEGORIES.map((category) => (
-            <Card
+          {CATEGORIES.map((category, index) => (
+            <motion.div
               key={category}
-              className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0"
+              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 14 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+              whileHover={shouldReduceMotion ? undefined : { y: -4, scale: 1.01 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.24, ease: "easeOut", delay: index * 0.04 }}
             >
-              <CardHeader>
-                <CardTitle className="text-sm font-semibold uppercase tracking-wide text-zinc-300">
-                  {t(`categories.${category}`)}
-                </CardTitle>
-              </CardHeader>
+              <Card className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0 transition-shadow duration-200 hover:shadow-lg hover:shadow-zinc-950/35">
+                <CardHeader>
+                  <CardTitle className="text-sm font-semibold uppercase tracking-wide text-zinc-300">
+                    {t(`categories.${category}`)}
+                  </CardTitle>
+                </CardHeader>
 
-              <CardContent className="flex flex-wrap gap-2">
-                {ITEMS[category].map((item) => {
-                  const Icon = ICONS[item];
+                <CardContent className="flex flex-wrap gap-2">
+                  {ITEMS[category].map((item) => {
+                    const Icon = ICONS[item];
 
-                  return (
-                    <Badge
-                      key={item}
-                      variant="outline"
-                      className="border-zinc-700 bg-zinc-900 text-zinc-200"
-                    >
-                      <Icon className="size-3 text-zinc-400" />
-                      {t(`items.${item}`)}
-                    </Badge>
-                  );
-                })}
-              </CardContent>
-            </Card>
+                    return (
+                      <Badge
+                        key={item}
+                        variant="outline"
+                        className="border-zinc-700 bg-zinc-900 text-zinc-200 transition-colors hover:bg-zinc-800/80"
+                      >
+                        <Icon className="size-3 text-zinc-400" />
+                        {t(`items.${item}`)}
+                      </Badge>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
