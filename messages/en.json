@@ -54,5 +54,38 @@
         "description": "Event-driven jobs and queue workers for reliable background processing at scale."
       }
     }
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Technologies I use to build robust backend products.",
+    "categories": {
+      "backend": "Backend",
+      "database": "Database",
+      "auth": "Auth",
+      "infra": "Infra",
+      "testing": "Testing"
+    },
+    "items": {
+      "node": "Node.js",
+      "typescript": "TypeScript",
+      "nest": "NestJS",
+      "express": "Express",
+      "postgresql": "PostgreSQL",
+      "mongodb": "MongoDB",
+      "redis": "Redis",
+      "prisma": "Prisma",
+      "jwt": "JWT",
+      "oauth": "OAuth2",
+      "rbac": "RBAC",
+      "sessions": "Sessions",
+      "docker": "Docker",
+      "aws": "AWS",
+      "ci": "CI/CD",
+      "nginx": "Nginx",
+      "jest": "Jest",
+      "supertest": "Supertest",
+      "playwright": "Playwright",
+      "vitest": "Vitest"
+    }
   }
 }

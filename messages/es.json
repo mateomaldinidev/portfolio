@@ -54,5 +54,38 @@
         "description": "Jobs orientados a eventos y workers de cola para procesamiento en segundo plano confiable a escala."
       }
     }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "description": "Tecnologias que uso para construir productos backend robustos.",
+    "categories": {
+      "backend": "Backend",
+      "database": "Base de Datos",
+      "auth": "Auth",
+      "infra": "Infra",
+      "testing": "Testing"
+    },
+    "items": {
+      "node": "Node.js",
+      "typescript": "TypeScript",
+      "nest": "NestJS",
+      "express": "Express",
+      "postgresql": "PostgreSQL",
+      "mongodb": "MongoDB",
+      "redis": "Redis",
+      "prisma": "Prisma",
+      "jwt": "JWT",
+      "oauth": "OAuth2",
+      "rbac": "RBAC",
+      "sessions": "Sesiones",
+      "docker": "Docker",
+      "aws": "AWS",
+      "ci": "CI/CD",
+      "nginx": "Nginx",
+      "jest": "Jest",
+      "supertest": "Supertest",
+      "playwright": "Playwright",
+      "vitest": "Vitest"
+    }
   }
 }
