@@ -1,6 +1,12 @@
 "use client";
 
 import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
   Braces,
   Cloud,
   Cpu,
@@ -60,15 +66,17 @@ export function SkillsSection() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {CATEGORIES.map((category) => (
-            <div
+            <Card
               key={category}
-              className="rounded-xl border border-zinc-800 bg-zinc-950/70 p-4"
+              className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0"
             >
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-300">
-                {t(`categories.${category}`)}
-              </h3>
+              <CardHeader>
+                <CardTitle className="text-sm font-semibold uppercase tracking-wide text-zinc-300">
+                  {t(`categories.${category}`)}
+                </CardTitle>
+              </CardHeader>
 
-              <div className="mt-3 flex flex-wrap gap-2">
+              <CardContent className="flex flex-wrap gap-2">
                 {ITEMS[category].map((item) => {
                   const Icon = ICONS[item];
 
@@ -83,8 +91,8 @@ export function SkillsSection() {
                     </Badge>
                   );
                 })}
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
