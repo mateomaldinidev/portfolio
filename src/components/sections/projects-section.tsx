@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Braces,
   Cloud,
@@ -64,6 +65,7 @@ const PROJECTS = [
 
 export function ProjectsSection() {
   const t = useSectionTranslations("projects");
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section id="projects" className="scroll-mt-24">
@@ -75,56 +77,63 @@ export function ProjectsSection() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {PROJECTS.map((project) => (
-            <Card
+            <motion.div
               key={project.key}
-              className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0"
+              whileHover={
+                shouldReduceMotion
+                  ? undefined
+                  : { y: -4, scale: 1.01 }
+              }
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              <CardContent className="pt-4">
-                <div className="flex aspect-video items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-800 text-zinc-400">
-                  <span className="text-sm">{t("imagePlaceholder")}</span>
-                </div>
-              </CardContent>
+              <Card className="border-zinc-800 bg-zinc-950/70 text-zinc-100 ring-0 transition-shadow duration-200 hover:shadow-lg hover:shadow-zinc-950/40">
+                <CardContent className="pt-4">
+                  <div className="flex aspect-video items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-800 text-zinc-400">
+                    <span className="text-sm">{t("imagePlaceholder")}</span>
+                  </div>
+                </CardContent>
 
-              <CardHeader>
-                <CardTitle>{t(`cards.${project.key}.title`)}</CardTitle>
-                <CardDescription className="text-zinc-400">
-                  {t(`cards.${project.key}.description`)}
-                </CardDescription>
-              </CardHeader>
+                <CardHeader>
+                  <CardTitle>{t(`cards.${project.key}.title`)}</CardTitle>
+                  <CardDescription className="text-zinc-400">
+                    {t(`cards.${project.key}.description`)}
+                  </CardDescription>
+                </CardHeader>
 
-              <CardContent className="space-y-4 pb-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.techs.map((techKey) => {
-                    const Icon = ICONS[techKey];
+                <CardContent className="space-y-4 pb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.techs.map((techKey) => {
+                      const Icon = ICONS[techKey];
 
-                    return (
-                      <div
-                        key={techKey}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-200"
-                      >
-                        <Icon className="size-3.5 text-zinc-400" />
-                        <span>{t(`tech.${techKey}`)}</span>
-                      </div>
-                    );
-                  })}
-                </div>
+                      return (
+                        <div
+                          key={techKey}
+                          className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-200"
+                        >
+                          <Icon className="size-3.5 text-zinc-400" />
+                          <span>{t(`tech.${techKey}`)}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
 
-                <div className="flex flex-wrap gap-2">
-                  <Button asChild size="sm" className="h-8">
-                    <Link href={project.github} target="_blank" rel="noreferrer">
-                      <Braces className="size-4" />
-                      {t("buttons.github")}
-                    </Link>
-                  </Button>
-                  <Button asChild size="sm" variant="outline" className="h-8 border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
-                    <Link href={project.demo} target="_blank" rel="noreferrer">
-                      <ExternalLink className="size-4" />
-                      {t("buttons.demo")}
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="flex flex-wrap gap-2">
+                    <Button asChild size="sm" className="h-8">
+                      <Link href={project.github} target="_blank" rel="noreferrer">
+                        <Braces className="size-4" />
+                        {t("buttons.github")}
+                      </Link>
+                    </Button>
+                    <Button asChild size="sm" variant="outline" className="h-8 border-zinc-700 bg-transparent text-zinc-100 hover:bg-zinc-800">
+                      <Link href={project.demo} target="_blank" rel="noreferrer">
+                        <ExternalLink className="size-4" />
+                        {t("buttons.demo")}
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
