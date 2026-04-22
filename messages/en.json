@@ -1,4 +1,11 @@
 {
+  "navbar": {
+    "logo": "Mateo",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
   "hero": {
     "title": "Mateo Maldini",
     "subtitle": "Backend Developer",
