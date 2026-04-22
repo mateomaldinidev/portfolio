@@ -16,5 +16,43 @@
   "about": {
     "title": "Sobre mi",
     "description": "Soy desarrollador backend, enfocado en construir sistemas mantenibles, arquitectura limpia y APIs confiables que escalan con necesidades reales de producto."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "description": "Trabajos seleccionados de backend y full-stack.",
+    "imagePlaceholder": "Vista previa del proyecto",
+    "buttons": {
+      "github": "GitHub",
+      "demo": "Demo"
+    },
+    "tech": {
+      "next": "Next.js",
+      "node": "Node.js",
+      "postgres": "PostgreSQL",
+      "docker": "Docker",
+      "redis": "Redis",
+      "auth": "Auth",
+      "queue": "Colas",
+      "cloud": "Cloud",
+      "api": "REST API"
+    },
+    "cards": {
+      "one": {
+        "title": "Plataforma API",
+        "description": "Arquitectura API escalable con servicios modulares, autenticacion segura y modelado de datos robusto."
+      },
+      "two": {
+        "title": "Herramientas Internas",
+        "description": "Dashboards operativos y flujos de administracion que mejoran visibilidad y velocidad de entrega."
+      },
+      "three": {
+        "title": "Servicio de Auth",
+        "description": "Servicio de autenticacion con tokens, roles, sesiones y endurecimiento de seguridad."
+      },
+      "four": {
+        "title": "Procesamiento Asincrono",
+        "description": "Jobs orientados a eventos y workers de cola para procesamiento en segundo plano confiable a escala."
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { HeroSection } from "@/src/components/sections/hero-section";
 import { AboutSection } from "@/src/components/sections/about-section";
+import { ProjectsSection } from "@/src/components/sections/projects-section";
 import { getTranslations } from "next-intl/server";
 
 export default async function HomePage() {
@@ -11,12 +12,7 @@ export default async function HomePage() {
 
       <AboutSection />
 
-      <section
-        id="projects"
-        className="scroll-mt-24 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8"
-      >
-        <h2 className="text-xl font-semibold text-zinc-100">{t("projects")}</h2>
-      </section>
+      <ProjectsSection />
 
       <section
         id="skills"
